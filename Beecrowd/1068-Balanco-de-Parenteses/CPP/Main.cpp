@@ -10,7 +10,8 @@ int main() {
 	    i = 0;
 	string str;
 
-	while (i < 5) {
+	cout << "Limite de 5 testes no programa" << endl;
+	while (i < fim) {
 		cin >> str;
 
 		if (str.length() >= 1 || str.length() <= 10000) {
