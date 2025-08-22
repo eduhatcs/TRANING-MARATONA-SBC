@@ -1,4 +1,4 @@
-beecrowd | 1068 Por Neilor Tonin, URI Brasil
+beecrowd | 1068 <br>Por Neilor Tonin, URI Brasil
  
 # Balanço de Parênteses I
 
@@ -24,15 +24,15 @@ Como entrada, haverá N expressões (1 <= N <= 10000), cada uma delas com até 1
 O arquivo de saída deverá ter a quantidade de linhas correspondente ao arquivo de entrada, cada uma delas contendo as palavras correct ou incorrect de acordo com as regras acima fornecidas.
 
 ## Exemplo de Entrada
-a+(b*c)-2-a 
-(a+b*(2-c)-2+a)*2 
-(a*b-(2+c) 
-2*(3-a))  
-)3+b*(2-c)( 
+a+(b*c)-2-a <br>
+(a+b*(2-c)-2+a)*2 <br> 
+(a*b-(2+c) <br>
+2*(3-a))   <br>
+)3+b*(2-c)( <br>
 	
 ## Exemplo de Saída
-correct
-correct
-incorrect
-incorrect
+correct <br>
+correct <br>
+incorrect <br>
+incorrect <br>
 incorrect 
