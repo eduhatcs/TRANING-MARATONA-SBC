@@ -14,6 +14,22 @@ class Celula {
 		this.prox = null;
 	}
 
+	public void setElemento(int elemento) {
+		this.elemento = elemento;
+	}
+
+	public int getElemento() {
+		return this.elemento;
+	}
+
+	public void setProx(Celula prox) {
+		this.prox = prox;
+	}
+
+	public Celula getProx() {
+		return this.prox;
+	}
+
 }
 
 class Lista {
@@ -25,48 +41,58 @@ class Lista {
 		this.ultimo = primeiro;
 	}
 
-	public void inserirInicio(int x) {
-		Celula tmp = new Celula(x);
-		tmp.prox = primeiro.prox;
-		primeiro.prox = tmp;
-
-		if (primeiro == ultimo) {
-			ultimo == tmp;
-		}
-
-		tmp == null;
+	public void inserirFim(int x) {
+		ultimo.setProx(new Celula(x));
+		ultimo = ultimo.getProx();
 	}
 
-	public void inserirFim(int x) {
-		ultimo.prox = new Celula(x);
-		ultimo = ultimo.prox;
+	public void mostrar() {
+		Celula i = primeiro.getProx();
+		while (i != null) {
+			System.out.print(" " + i.getElemento() + " ->");
+			i = i.getProx();
+		}
+		System.out.print(" \\");
 	}
 }
 
 class TabelaHash {
-	private int tab[];
+	private Lista tab[];
 	private int n;
 
 	public TabelaHash() {
 		this.n = 13;
-		this.tab = new int[this.n];
+		this.tab = new Lista[this.n];
 
 		for (int i = 0; i < n; i++) {
-			tab[i] = null;
+			tab[i] = new Lista();
 		}
 	}
 
 	public TabelaHash(int n) {
 		this.n = n;
-		this.tab = new int[this.n];
+		this.tab = new Lista[this.n];
 
 		for (int i = 0; i < n; i++) {
-			tab[i] = null;
+			tab[i] = new Lista();
 		}
 	}
 
-	public void hash(int x) {
+	public int hash(int x) {
 		return x % this.n;
+	}
+
+	public void inserir(int x) {
+		int pos = hash(x);
+		tab[pos].inserirFim(x);
+	}
+
+	public void mostrar() {
+		for (int i = 0; i < n; i++) {
+			System.out.print(i + " ->");
+			tab[i].mostrar();
+			System.out.println();
+		}
 	}
 }
 
@@ -74,8 +100,28 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		int M = 0,
-		    C = 0;
+		int N = sc.nextInt(),
+		    M = 0,
+		    C = 0,
+		    X = 0;
+
+		for (int i = 0; i < N; i++) {
+			M = sc.nextInt();
+			C = sc.nextInt();
+
+			TabelaHash hash = new TabelaHash(M);
+
+			for (int j = 0; j < C; j++) {
+				X = sc.nextInt();
+				hash.inserir(X);
+			}
+
+			hash.mostrar();
+
+			if (i < N-1) {
+				System.out.println();
+			}
+		}	
 
 		sc.close();
 	}
